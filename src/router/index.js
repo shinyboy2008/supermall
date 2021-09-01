@@ -1,42 +1,46 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// const Home = () => import('views/home/Home')
-// const Category = () => import('views/category/Category')
-// const Cart = () => import('views/cart/Cart')
-// const Profile = () => import('views/profile/Profile')
-// const Detail = () => import('views/detail/Detail')
+import Home from '../views/home/Home.vue'
+import Cart from '../views/cart/Cart.vue'
+import CateGory from '../views/category/Category.vue'
+import Profile from '../views/profile/Profile.vue'
+
+
+
 
 Vue.use(VueRouter)
 
-const routes = [{
-    // path: '/',
-    // redirect: '/home'
+const routes = [
+	{
+    path: '/',
+    redirect: '/home'
   },
   {
-    // path: '/home',
-    // component: Home
+    path: '/home',
+		component:  resolve => require(['../views/home/Home.vue'], resolve)
   },
-  {
-    // path: '/category',
-    // component: Category
-  },
-  {
-    // path: '/cart',
-    // component: Cart
-  },
-  {
-    // path: '/profile',
-    // component: Profile
-  },
-  {
-    // path: '/detail/:iid',
-    // component: Detail
-  }
+	{
+		path: '/category',
+		component:  resolve => require(['../views/category/Category.vue'], resolve)
+	},
+	{
+		path: '/Cart',
+		component:  resolve => require(['../views/cart/Cart.vue'], resolve)
+	},
+	{
+		path: '/Profile',
+		component:  resolve => require(['../views/profile/Profile.vue'], resolve)
+	}
 ]
 
 const router = new VueRouter({
   routes,
   mode: 'history'
+})
+
+router.beforeEach((to,from,next)=>{
+	window.document.title = to.meta.title;
+	next()
 })
 
 export default router
