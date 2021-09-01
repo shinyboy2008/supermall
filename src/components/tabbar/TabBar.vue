@@ -8,7 +8,7 @@
 </script>
 
 <style scoped>
-	#tab-bar{
+	#tab-bar {
 		display: flex;
 		/* justify-content: space-around; */
 		background: #f6f6f6;
@@ -17,5 +17,4 @@
 		bottom: 0;
 		right: 0;
 	}
-	
 </style>

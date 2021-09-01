@@ -2,6 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import 'bootstrap/dist/js/bootstrap.js'
+import 'bootstrap/dist/css/bootstrap.css'
+
 //网络
 import './network/request'
 //按需导入vant
@@ -13,6 +16,7 @@ import FastClick from 'fastclick'
 FastClick.attach(document.body)
 //图片懒加载
 import VueLazyLoad from 'vue-lazyload'
+import Axios from 'axios'
 Vue.use(VueLazyLoad,{
   loading:require('./assets/img/common/placeholder.png')
 })
