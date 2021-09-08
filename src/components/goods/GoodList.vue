@@ -1,45 +1,35 @@
 <template>
-    <div class="good-list">
-        <div v-for="(item,index) in goods" class="good-item" :key="index">
-            <img :v-lazy="item.img || item.image || item.show.img ">
-        </div>
-    </div>
+<div class="goods">
+<goods-list-item 
+v-for="(item,index) in goods"
+ :key="index"
+  :goods-item="item"></goods-list-item>
+  </div>
 </template>
-
+  
 <script>
-export default{
-    name:"GoodList",
-    props:{
-        goods:{
-            type:Array,
-            default(){
-                return[]
-            }
+import GoodsListItem from '../goods/GoodListItem.vue'
+export default {
+name:"GoodsList",
+props:{
+    goods:{
+        type:Array,
+        default(){
+            return []
         }
-    },
-    // methods:{
+    }
+},
+components:{
+    GoodsListItem
+},
 
-    // }
+
 }
 </script>
 
 <style>
-.goods-list{
+.goods{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-.good-item{
-    width: 47%;
-}
-.item-img{
-    width: 100%;
-    height: 275px;
-    border-radius: 6px;
-}
-.item-info{
-    display: flex;
-    align-items: center;
-    justify-content: center;  
+    flex-flow: row wrap;
 }
 </style>

@@ -31,7 +31,6 @@ import Recommendview from '../../components/RecommendView/recommendView.vue'
 import TabControl from '../../components/tabControl/TabControl.vue'
 import GoodList from '../../components/goods/GoodList.vue'
 import { getHomeMutilData } from '../../network/home';
-
 export default {
   name: "Home",
   components: {
@@ -56,14 +55,16 @@ export default {
     };
   },
   created() {
-    // 请求多个数据
-    getHomeMutilData().then((res) => {
-      // this.result = res;
-      this.banners = res.data.banner.list;
-      this.recommends = res.data.recommend.list;
-    });
+  this.getHomeMutilData();
   },
   methods:{
+    // 网络请求的相关办法
+     getHomeMutilData(){
+     getHomeMutilData().then(res=>{
+     this.banners = res.data.banner.list;    
+     this.recommends = res.data.recommend.list;
+   })
+   },
     itemClick(index){
       // this.$refs.tabControl.currentIndex = index
     }

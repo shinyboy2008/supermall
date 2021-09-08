@@ -5,6 +5,8 @@ export function request(config) {
   // 1.创建axios的实例
   const instance = axios.create({
     // 需要接口的请加coderwhy老师
+    // http://152.136.185.210:7878/api/m5
+    // baseURL:'http://123.207.32.32:8000/home/multidata',
     baseURL:'http://123.207.32.32:8000/home/multidata',
     timeout:5000
   })
