@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Swipe, SwipeItem, GoodsAction, GoodsActionIcon, GoodsActionButton, Checkbox, CheckboxGroup,Toast, Icon , Image as VanImage} from 'vant';
+import { Swipe, SwipeItem, GoodsAction, GoodsActionIcon, GoodsActionButton, Checkbox, CheckboxGroup,Toast, Icon , Image as VanImage , Lazyload } from 'vant';
 Vue.use(VanImage);
 Vue.use(Icon)
 Vue.use(Toast);
@@ -10,4 +10,4 @@ Vue.use(GoodsActionButton);
 Vue.use(GoodsActionIcon);
 Vue.use(Checkbox);
 Vue.use(CheckboxGroup);
-
+Vue.use(Lazyload);

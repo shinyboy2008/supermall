@@ -27,6 +27,8 @@
 	import TabBar from './TabBar.vue'
 	import TabBarItem from './TabBarItem.vue'
 
+
+
 	export default {
 		name: 'MainTabBar',
 		components: {
