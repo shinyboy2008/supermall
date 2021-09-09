@@ -11,9 +11,8 @@
       class="quer1"
       ref="scroll"
       :probe-type="3"
-      @scroll="contentScroll"
-      :pull-up-load="true"
-      @pullingUp="loadMore"
+      
+      
     >
       <!-- 轮播图 -->
       <swiper :banners="banners"/>
@@ -111,6 +110,7 @@ export default {
     },
   },
 };
+// 
 </script>
 
 <style scoped>

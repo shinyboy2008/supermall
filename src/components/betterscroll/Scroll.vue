@@ -26,14 +26,14 @@ data(){
         }
 },
 mounted(){
-    //监听滚动的位置
-    this.scroll.on("scroll",(position)=>{
-        this.$emit("scroll",position)
-    })
-    //监听上拉事件
-    this.scroll.on("pullingUp",()=>{
-   this.$emit("pullingUp")
-    })
+//     //监听滚动的位置
+//     this.scroll.on("scroll",(position)=>{
+//         this.$emit("scroll",position)
+//     })
+//     //监听上拉事件
+//     this.scroll.on("pullingUp",()=>{
+//    this.$emit("pullingUp")
+//     })
 },
 updated(){
   this.scroll=new BScroll(this.$refs.wrapper,{
@@ -47,16 +47,16 @@ methods:{
     scrollTo(x,y,time=300){
         this.scroll.scrollTo(x,y,time)
     },
-    finishPullUp() {
-        this.scroll.finishPullUp()
-      },
-      refresh(){
-          this.scroll. refresh()
-          console.log(this.scroll);
-      },
-       getScrollY(){
-           return this.scroll?this.scroll.y:0
-       }
+    // finishPullUp() {
+    //     this.scroll.finishPullUp()
+    //   },
+    //   refresh(){
+    //       this.scroll. refresh()
+    //       console.log(this.scroll);
+    //   },
+    //    getScrollY(){
+    //        return this.scroll?this.scroll.y:0
+    //    }
 }    
 }
 </script>
