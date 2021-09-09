@@ -41,12 +41,12 @@ methods:{
 
 <style>
 .GoodListItem{
-    width: 50%;
+    width: 30%;
     font-size: 12px;
 }
 .GoodListItem img{
     width: 100%;
-    height: 270px;
+    height: 200px;
     padding: 6px;
 }
 .goods-info p{

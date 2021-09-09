@@ -7,7 +7,7 @@ export function request(config) {
     // 需要接口的请加coderwhy老师
     // http://152.136.185.210:7878/api/m5
     // baseURL:'http://123.207.32.32:8000/home/multidata',
-    baseURL:'http://123.207.32.32:8000/home/multidata',
+    baseURL:'http://152.136.185.210:7878/api/m5',
     timeout:5000
   })
   //2.请求拦截 axios的拦截器

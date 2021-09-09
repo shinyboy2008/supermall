@@ -18,7 +18,7 @@
   <good-list :goods="goods[currentTitles].list"/>
   <!--  -->
   <!--  -->
-  <div style="width:100%;height:5000px;"></div>
+  <div style="width:100%;height:100px;"></div>
   <!--  -->
   </div>
 
@@ -30,7 +30,8 @@ import Swiper from '../../components/swiper/Swiper.vue'
 import Recommendview from '../../components/RecommendView/recommendView.vue'
 import TabControl from '../../components/tabControl/TabControl.vue'
 import GoodList from '../../components/goods/GoodList.vue'
-import { getHomeMutilData } from '../../network/home';
+import { getHomeMutilData} from '../../network/home';
+import {getHomeGoods} from '../../network/home'
 export default {
   name: "Home",
   components: {
@@ -48,7 +49,7 @@ export default {
       titles:['流行','新款','精选'],
       goods:{
         pop:{page:0,list:[]},
-        news:{page:0,list:[]},
+        new:{page:0,list:[]},
         sell:{page:0,list:[]}
       },
       currentTitles:'pop',
@@ -56,6 +57,9 @@ export default {
   },
   created() {
   this.getHomeMutilData();
+  this.getHomeGoods('pop');
+  this.getHomeGoods('new');
+  this.getHomeGoods('sell');
   },
   methods:{
     // 网络请求的相关办法
@@ -65,8 +69,25 @@ export default {
      this.recommends = res.data.recommend.list;
    })
    },
+   getHomeGoods(type){
+     const page = this.goods[type].page + 1;
+     getHomeGoods(type,page).then(res=>{
+       this.goods[type].list.push(...res.data.list);
+       this.goods[type].page += 1;
+     })
+   },
     itemClick(index){
-      // this.$refs.tabControl.currentIndex = index
+      switch(index){
+        case 0:
+          this.currentTitles = 'pop';
+          break;
+          case 1:
+          this.currentTitles = 'new';
+          break;
+          case 2:
+          this.currentTitles = 'sell';
+          break;  
+      }
     }
   }
 }

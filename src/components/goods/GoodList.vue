@@ -31,5 +31,7 @@ components:{
 .goods{
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-around;
+    overflow: hidden;
 }
 </style>
