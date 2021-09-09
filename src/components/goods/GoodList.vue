@@ -27,7 +27,7 @@ components:{
 }
 </script>
 
-<style>
+<style scoped>
 .goods{
     display: flex;
     flex-flow: row wrap;

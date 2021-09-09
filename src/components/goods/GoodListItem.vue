@@ -39,7 +39,7 @@ methods:{
 }
 </script>
 
-<style>
+<style scoped>
 .GoodListItem{
     width: 30%;
     font-size: 12px;

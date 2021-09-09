@@ -41,7 +41,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 .home-swiper{
     background-color:gray;
 }
@@ -53,9 +53,6 @@ export default {
     background-color: #39a9ed;
   }
   .van-swipe__track{
-    width: 100% !important;
-  }
-  .van-swipe-item{
     width: 100% !important;
   }
   .van-swipe-item img{

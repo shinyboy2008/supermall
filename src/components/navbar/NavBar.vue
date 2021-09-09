@@ -20,7 +20,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.nav-bar{
 		height: 44px;
 		line-height: 44px;
