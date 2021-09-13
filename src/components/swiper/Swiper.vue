@@ -2,9 +2,9 @@
 <!-- <div v-if="banners"> -->
 <van-swipe :autoplay="3000">
   <van-swipe-item v-for="(item, index) in banners" :key="index">
-    <a :href="item.link">
+    <!-- <a :href="item.link"> -->
       <img :src="item.image" @load="imgLoad" alt=""/>
-    </a>
+    <!-- </a> -->
   </van-swipe-item>
 </van-swipe>
 <!-- </div> -->

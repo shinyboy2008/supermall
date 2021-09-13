@@ -11,8 +11,6 @@
       class="quer1"
       ref="scroll"
       :probe-type="3"
-      
-      
     >
       <!-- 轮播图 -->
       <swiper :banners="banners"/>
@@ -27,7 +25,7 @@
       <!--  -->
     </scroll>
     <!--  -->
-    <backtop @click.native="backclick"></backtop>
+    <backtop @click.native="backclick" v-show="isShowBackTop"></backtop>
     <!--  -->
   </div>
 </template>
@@ -42,6 +40,7 @@ import Scroll from "../../components/betterscroll/Scroll.vue";
 import backtop from "../../components/backTop/backtop.vue"
 import { getHomeMutilData } from "../../network/home";
 import { getHomeGoods } from "../../network/home";
+import BScroll from 'better-scroll';
 export default {
   name: "Home",
   components: {
@@ -65,7 +64,7 @@ export default {
         sell: { page: 0, list: [] },
       },
       currentTitles: "pop",
-      
+      isShowBackTop: true
     };
   },
   created() {
@@ -75,7 +74,15 @@ export default {
     this.getHomeGoods("sell");
   },
   mounted() {
-    this.$refs.Swiper;
+    // 创建BScroll对象
+    this.scroll = new BScroll(this.$refs.wrapper,{
+      click:true
+    })
+
+    // 监听滚动的位置
+    this.scroll.on('scroll',(position)=>{
+      console.log(position);
+    })
   },
   methods: {
     // 网络请求的相关办法
@@ -90,6 +97,8 @@ export default {
       getHomeGoods(type, page).then((res) => {
         this.goods[type].list.push(...res.data.list);
         this.goods[type].page += 1;
+
+        // this.$refs.scroll.scroll.finishPullUp()
       });
     },
     itemClick(index) {
@@ -108,6 +117,13 @@ export default {
     backclick(){
       this.$refs.scroll.scrollTo(0,0)
     },
+    // contentScroll(position){
+    //   this.isShowBackTop = (-position.y) > 1000;
+    // },
+    loadMore(){
+      this.getHomeGoods(this.currentType)
+    },
+    
   },
 };
 // 
